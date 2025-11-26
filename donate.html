@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kindr – Donate</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- PayPal -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AWXiLk5YzaHQXWeE7asEGI2j1gCP3gbWw4Kq89QXRl5Lfst4S32h7K46LZuV0bi1r-M38LP_Mkod9K14"></script>
+
+    <style>
+        :root {
+            --pink1: #fff0f7;
+            --pink2: #ffc5df;
+            --pink3: #ff75b3;
+            --pink4: #d64a88;
+            --white: #ffffff;
+            --text1: #b2447d;
+        }
+
+                body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-image: url('Backgroound.jpg'); /* your JPEG file */
+    background-size: cover;       /* makes the image cover the whole screen */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+    min-height: 100vh;
+    color: #4a4a4a;
+    padding-bottom: 90px; /* space for bottom navbar */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+        /* CARD */
+        .donate-card {
+            background: white;
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border: 2px solid #ffe4f2;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: var(--pink4);
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .form-label {
+            color: var(--pink4);
+            font-weight: 600;
+        }
+
+        /* Amount Buttons */
+        .preset {
+            border-radius: 25px;
+            border: 2px solid var(--pink3);
+            color: var(--pink3);
+            font-weight: 600;
+            padding: 8px 20px;
+            transition: 0.2s ease;
+        }
+
+        .preset:hover {
+            background: var(--pink3);
+            color: white;
+        }
+
+        .preset.active {
+            background: var(--pink3);
+            color: white;
+        }
+
+        #custom-amount {
+            border-radius: 12px;
+            border: 2px solid #ffbcdc;
+        }
+
+        /* BOTTOM NAVBAR (IMPROVED) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 780px;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-radius: 20px 20px 0 0;
+            border-top: 3px solid #ffd1e9;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+            z-index: 999;
+            margin-bottom: 10;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 13px;
+            color: var(--pink4);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nav-item:hover {
+            color: var(--pink3);
+        }
+
+        .nav-item .icon {
+            font-size: 23px;
+            background: var(--pink3);
+            color: white;
+            padding: 10px;
+            border-radius: 15px;
+            margin-bottom: 4px;
+            transition: 0.2s;
+        }
+
+        .nav-item:hover .icon {
+            background: var(--pink4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Donation Page Container -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-7">
+
+                <div class="donate-card">
+                    <h1 class="text-center mb-2">Kindr Donate</h1>
+                    <p class="text-center text-muted mb-4">
+                        Your kindness directly supports families affected by disasters in the Philippines.
+                    </p>
+
+                    <!-- Name Input -->
+                    <div class="mb-3">
+                        <label for="donorName" class="form-label">Name*</label>
+                        <input id="donorName" type="text" class="form-control" placeholder="ex: John Doe">
+                    </div>
+
+                    <!-- Donation Amount -->
+                    <div class="my-3">
+                        <label class="form-label">Amount*</label>
+
+                        <input id="custom-amount" type="number" min="0.01" step="0.01" class="form-control mb-3"
+                            placeholder="Enter amount" value="1.00">
+
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                            <button data-amount="5.00" class="preset btn btn-sm">₱5</button>
+                            <button data-amount="10.00" class="preset btn btn-sm">₱10</button>
+                            <button data-amount="50.00" class="preset btn btn-sm">₱50</button>
+                            <button data-amount="100.00" class="preset btn btn-sm">₱100</button>
+                        </div>
+                    </div>
+
+                    <!-- PayPal -->
+                    <div id="paypal-button-container" class="mt-4"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Improved Bottom Navbar -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="window.location.href='index.html#screen2'"> <span class="icon">🏠</span>
+            <p>Home</p>
+        </div>
+
+        <div class="nav-item" onclick="window.location.href='donate.html'">
+            <span class="icon">❤️</span>
+            <p>Donate</p>
+        </div>
+
+        <div class="nav-item" onclick="window.location.href='about.html'">
+            <span class="icon">👤</span>
+            <p>About</p>
+        </div>
+    </div>
+
+    <!-- DONATION SCRIPT (UNCHANGED) -->
+    <script>
+        let selectedAmount = "1.00";
+
+        function fmt(v) {
+            return parseFloat(v || 0).toFixed(2);
+        }
+
+        document.querySelectorAll('.preset').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.preset').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                selectedAmount = fmt(btn.getAttribute('data-amount'));
+                document.getElementById('custom-amount').value = selectedAmount;
+            });
+        });
+
+        document.getElementById('custom-amount').addEventListener('input', () => {
+            const num = parseFloat(document.getElementById('custom-amount').value);
+            if (num > 0) {
+                selectedAmount = fmt(num);
+                document.querySelectorAll('.preset').forEach(b => b.classList.remove('active'));
+            }
+        });
+
+        paypal.Buttons({
+            onClick: function (data, actions) {
+                if (parseFloat(selectedAmount) <= 0) {
+                    alert("Please enter a valid amount.");
+                    return actions.reject();
+                }
+                return actions.resolve();
+            },
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: { value: selectedAmount }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    alert("Thank you! Donation completed.");
+                });
+            },
+            onError: function (err) {
+                alert("An error occurred while processing the donation.");
+            }
+        }).render('#paypal-button-container');
+    </script>
+
+</body>
+
+</html>

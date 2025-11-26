@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Kindr</title>
+
+    <style>
+        :root {
+            --pink1: #ffe0f0;
+            --pink2: #ffb3d9;
+            --pink3: #ff4fa3;
+            /* main pink for icon background */
+            --pink4: #d63a88;
+            /* hover color */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-image: url('Backgroound.jpg');
+            /* your JPEG file */
+            background-size: cover;
+            /* makes the image cover the whole screen */
+            background-position: center;
+            /* centers the image */
+            background-repeat: no-repeat;
+            /* prevents tiling */
+            min-height: 100vh;
+            color: #4a4a4a;
+            padding-bottom: 90px;
+            /* space for bottom navbar */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+
+        /* Container matches donate.html card size */
+        .wrapper {
+            width: 70%;
+            max-width: 700px;
+            /* same as donate page max width */
+            background: #ffffffee;
+            border-radius: 25px;
+            /* same as donate page card */
+            padding: 30px;
+            /* same as donate page card */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            margin: 40px 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ff4f92, #ff89b5);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .section-card {
+            background: #fff7fc;
+            padding: 25px;
+            border-radius: 22px;
+            box-shadow: inset 0 0 12px rgba(255, 150, 190, 0.18);
+            margin-bottom: 30px;
+        }
+
+        .team-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ff4f92;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .team-list span {
+            background: #ffe3f0;
+            padding: 10px 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(255, 140, 170, 0.15);
+        }
+
+        .prof-box {
+            background: #ffeaf5;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: inset 0 0 10px rgba(255, 150, 190, 0.15);
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* BOTTOM NAVBAR (IMPROVED) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 780px;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-radius: 20px 20px 0 0;
+            border-top: 3px solid #ffd1e9;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+            z-index: 999;
+            margin-bottom: 10;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 13px;
+            color: var(--pink4);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nav-item:hover {
+            color: var(--pink3);
+        }
+
+        .nav-item .icon {
+            font-size: 23px;
+            background: var(--pink3);
+            color: white;
+            padding: 10px;
+            border-radius: 15px;
+            margin-bottom: 4px;
+            transition: 0.2s;
+        }
+
+        .nav-item:hover .icon {
+            background: var(--pink4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <h1>About Kindr</h1>
+
+        <p class="intro">
+
+            The <strong> Kindr</strong> Application Project was created to provide an accessible platform for helping
+            communities affected by
+            disasters in the Philippines. It aims to make donating easier, faster, and more transparent, ensuring that
+            aid reaches those who need it most, while also serving as a practical application of our knowledge in system
+            integration and architecture.
+        </p>
+
+        <div class="section-card">
+            <div class="team-title">Developers</div>
+
+            <div class="team-list">
+                <span> Aquino, Julia Allary </span>
+                <span> Cabrido, Karylle </span>
+                <span> Sumague, Ritchel Anne </span>
+                <span> Torreliza, Akhicia Mae </span>
+                <span> Velasco, Rochelle Mae</span>
+
+            </div>
+        </div>
+
+        <div class="prof-box">
+            We are <strong> Bachelor of Science in Information Technology </strong> students from <Strong> PUP Sto.
+                Tomas</Strong>. This is an
+            intefrated project initiative for the subject <strong> System Integration & Architecture </strong> under
+            <strong>Prof. Aris Dela Rea</strong>.
+
+        </div>
+
+        <p class="footer"><i>Ang namulat ay di na muling pipikit.</i></p>
+
+    </div>
+
+    <!-- Improved Bottom Navbar -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="window.location.href='index.html#screen2'"> <span class="icon">🏠</span>
+            <p>Home</p>
+        </div>
+
+        <div class="nav-item" onclick="window.location.href='donate.html'">
+            <span class="icon">❤️</span>
+            <p>Donate</p>
+        </div>
+
+        <div class="nav-item" onclick="window.location.href='about.html'">
+            <span class="icon">👤</span>
+            <p>About</p>
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
